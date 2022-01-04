@@ -20,6 +20,13 @@ function App() {
     window.location.href = `${configData.authUrl}/auth?redirectURL=${currentURL}`;
   };
 
+  // Deletes cookies and redirects to login page
+  const logOut = () => {
+    deleteCookie("access_token");
+    deleteCookie("sessionID");
+    redirectLogin();
+  };
+
   useEffect(() => {
 
     // Gets session id from cookie
@@ -93,6 +100,19 @@ function App() {
 
       {/* if isLoading is false and has userInfo, then User component is rendered */}
       {!isLoading && userInfo && <User user={userInfo} setPosted={setPosted} />}
+
+      {/* Logout button */}
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        {!isLoading && userInfo && (
+          <button
+            className="btn btn-danger"
+            onClick={logOut}
+            style={{ textAlign: "center", width: "160px", height: "40px" }}
+          >
+            Log Out
+          </button>
+        )}
+      </div>
     </>
   );
 }

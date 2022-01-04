@@ -20,6 +20,34 @@ If a user visits an `consumer` or `user module`-protected service (`foo.sso.exam
 
 ---
 
+## Tech
+
+- MySQL
+- Node.js Restful API
+- Log4js
+- React
+- Mocha.js & Chai.js
+
+---
+
+## Screenshots
+
+#### SSO Auth Login Page
+
+![ SSO Auth Login Page ]( https://i.imgur.com/K1y6uz9.png )
+
+#### Consumer Page
+
+![ Consumer Page ]( https://i.imgur.com/YrFkthU.png )
+
+#### User Module Admin Panel
+
+![ User Module Admin Panel ]( https://i.imgur.com/WLwFwVI.png )
+
+#### In Action
+
+![ Display Text ]( https://i.gyazo.com/e61c6368946414eed0418d6ff7c16c8f.gif )
+
 ## Installation & Configuration
 
 #### - Clone Project

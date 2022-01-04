@@ -5,7 +5,7 @@ import AddUser from "../AddUser";
 //User Manager Component
 function UserManager({ users, posted, setPosted }) {
   return (
-    <Container className="vh-100 py-5">
+    <Container className="py-5">
       <Row className="d-flex justify-content-center align-items-center">
         <Col>
           <Card className="rounded-3 shadow">

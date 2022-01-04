@@ -3,6 +3,7 @@ import axios from "axios";
 import Error from "./components/Error";
 import UserManager from "./components/UserManager";
 import { getCookie, setCookie, deleteCookie } from "./utility";
+import { Button } from "react-bootstrap";
 
 const configData = require("./config.json");
 
@@ -24,6 +25,13 @@ function App() {
     const currentURL = window.location.origin;
     console.log("current url", currentURL);
     window.location.href = `${configData.authUrl}/auth?redirectURL=${currentURL}`;
+  };
+
+  // Deletes cookies and redirects to login page
+  const logOut = () => {
+    deleteCookie("access_token");
+    deleteCookie("sessionID");
+    redirectLogin();
   };
 
   useEffect(() => {
@@ -101,7 +109,6 @@ function App() {
 
   return (
     <div className="App">
-
       {/* if isAdmin is false, then Error component is rendered */}
       {!isAdmin && <Error message="Need Admin Permission" />}
 
@@ -109,8 +116,18 @@ function App() {
       {isAdmin && (
         <UserManager users={users} posted={posted} setPosted={setPosted} />
       )}
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <Button
+          variant="danger"
+          onClick={logOut}
+          style={{ textAlign: "center", width: "160px", height: "40px" }}
+        >
+          Log Out
+        </Button>
+      </div>
     </div>
   );
 }
+
 
 export default App;

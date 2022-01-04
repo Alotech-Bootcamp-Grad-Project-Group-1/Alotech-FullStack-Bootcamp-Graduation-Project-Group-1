@@ -29,8 +29,8 @@ const createUser = (req, res) => {
   } = req.body;
 
   // hashs and salts password
-  salt_password = user_password + process.env.SALT_PASS;
-  user_password_hash = CryptoJs.SHA256(salt_password).toString();
+  const salt_password = user_password + process.env.SALT_PASS;
+  const user_password_hash = CryptoJs.SHA256(salt_password).toString();
 
   sequelize
     .query(
@@ -91,9 +91,16 @@ const updateUser = (req, res) => {
     user_type,
   } = req.body;
 
-  // hashs and salts password
-  salt_password = user_password + process.env.SALT_PASS;
-  user_password_hash = CryptoJs.SHA256(salt_password).toString();
+  let user_password_hash;
+
+  if (user_password.length > 30) {
+    console.log("user password length:", user_password.length);
+    user_password_hash = user_password
+  } else {
+    // hashs and salts password
+    const salt_password = user_password + process.env.SALT_PASS;
+    user_password_hash = CryptoJs.SHA256(salt_password).toString();
+  }
 
   sequelize
     .query(
