@@ -1,3 +1,4 @@
+// Schema for Token database
 let tokenSchema = {
     "title": "Token",
     "type": "object",

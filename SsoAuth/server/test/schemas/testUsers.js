@@ -1,3 +1,4 @@
+// Generate User
 exports.generateUser = () => {
     return({
         username: `Test User ${Math.floor(Math.random() * 10000)}`,

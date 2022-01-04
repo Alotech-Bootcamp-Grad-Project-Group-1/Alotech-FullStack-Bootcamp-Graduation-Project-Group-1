@@ -11,6 +11,7 @@ let tokenReq = {
     redirectURL: "http://127.0.0.1:3010",
 }
 
+// Tests User login
 const loginUserTest = describe('Login user', function() {
 
     it('should return auth as true', function(done) {

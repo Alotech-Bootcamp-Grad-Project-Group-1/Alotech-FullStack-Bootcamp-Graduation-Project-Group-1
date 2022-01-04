@@ -1,3 +1,4 @@
+// Loading component
 function Loading({isError}){
     return(
         <>

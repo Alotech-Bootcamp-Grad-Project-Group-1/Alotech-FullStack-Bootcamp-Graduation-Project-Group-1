@@ -9,6 +9,7 @@ const getUserTest = require('./tests/getUserTest');
 const updateUserTest = require('./tests/updateUserTest');
 const deleteUserTest = require('./tests/deleteUserTest');
 
+// Runs Tests
 describe('User Module API', async function() {
 
     await setDB;

@@ -6,6 +6,7 @@ chai.use(chaiHttp);
 const userSchema = require('../schemas/userSchema');
 const { indexUrl, access_token } = require('../testConfig');
 
+// Tests get users
 const getUsersTest = describe('Get users', function() {
 
     it('should return 200', function(done) {

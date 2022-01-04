@@ -1,6 +1,7 @@
 import User from "../User";
 import { Table } from "react-bootstrap";
 
+// User Table Component
 function UserTable({ users, posted, setPosted }) {
   return (
     <Table responsive>

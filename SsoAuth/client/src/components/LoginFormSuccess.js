@@ -1,6 +1,7 @@
 import React from 'react';
 import '../App.css'
 
+// Login success component
 const LoginFormSuccess = () => {
   return (
     <div className='container'>

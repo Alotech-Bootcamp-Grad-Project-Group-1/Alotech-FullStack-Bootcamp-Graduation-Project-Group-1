@@ -2,9 +2,9 @@ const log4js = require("log4js");
 var path = require('path');
 const db = require('../models')
 
-
 const Log = db.Log;
 
+// Middleware, Saves Logs of SSO Auth server to authorization.txt file
 const saveLogs = async (req, res, next) => { 
 
   const  log4j = () => {
@@ -17,7 +17,6 @@ const saveLogs = async (req, res, next) => {
     const logger = log4js.getLogger("authorization");
     logger.debug("authorization debug,");
     logger.info("authorization info,");
-  
 
   }
 

@@ -1,3 +1,4 @@
+// Schema for Logs
 let logSchema = {
     "title": "Log",
     "type": "object",

@@ -1,3 +1,4 @@
+// Error component
 function Error({ message }) {
   return (
     <>

@@ -3,10 +3,12 @@ import axios from "axios";
 
 const configData = require("../../config.json");
 
+// User info component
 function User({ user, setPosted }) {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
 
+  // Handles updating user info
   const handleUpdatePassword = (e) => {
     e.preventDefault();
     if (
@@ -14,6 +16,8 @@ function User({ user, setPosted }) {
       newPassword === "" ||
       oldPassword === user.user_password
     ) {
+
+      //user info
       const data = {
         username: user.username,
         user_name: user.user_name,
@@ -22,6 +26,8 @@ function User({ user, setPosted }) {
         user_email: user.user_email,
         user_type: user.user_type,
       };
+
+      //updates user info
       axios
         .put(`${configData.apiUrl}/users/${user.id}`, data)
         .then((res) => {

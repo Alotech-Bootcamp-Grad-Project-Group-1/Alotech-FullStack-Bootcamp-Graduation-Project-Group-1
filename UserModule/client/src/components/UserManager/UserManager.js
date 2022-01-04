@@ -2,6 +2,7 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 import UserTable from "../UserTable";
 import AddUser from "../AddUser";
 
+//User Manager Component
 function UserManager({ users, posted, setPosted }) {
   return (
     <Container className="vh-100 py-5">

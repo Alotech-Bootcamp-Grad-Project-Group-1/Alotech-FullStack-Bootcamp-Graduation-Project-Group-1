@@ -5,6 +5,7 @@ chai.use(chaiHttp);
 
 const { authUrl, access_token } = require('../testConfig');
 
+// Tests if the token is valid or not
 const isTokenValidTest = describe('Is token valid', function() {
 
     it('should return status 200', function(done) {

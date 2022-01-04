@@ -1,3 +1,4 @@
+// Schema for User
 let userSchema = {
     "title": "User",
     "type": "object",

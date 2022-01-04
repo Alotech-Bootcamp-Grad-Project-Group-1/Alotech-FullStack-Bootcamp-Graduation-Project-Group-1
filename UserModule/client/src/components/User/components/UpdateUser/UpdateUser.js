@@ -6,13 +6,19 @@ const { getCookie } = require("../../../../utility/Utility");
 
 const configData = require("../../../../config.json");
 
+// Update User Component
 function UpdateUser({ user, setPosted }) {
+
+  // States for show and showPassword
   const [show, setShow] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
+  // Sets show false
   const handleClose = () => setShow(false);
+  // Sets show true
   const handleShow = () => setShow(true);
 
+  // States for user info
   const [username, setUsername] = useState(user.username);
   const [name, setName] = useState(user.user_name);
   const [surname, setSurname] = useState(user.user_surname);
@@ -20,11 +26,14 @@ function UpdateUser({ user, setPosted }) {
   const [role, setRole] = useState(user.user_type);
   const [password, setPassword] = useState(user.user_password);
 
+  // This is invoked when form is submitted
   function handleSubmit(e) {
     e.preventDefault();
 
+    // user id
     const id = user.id;
 
+    // user info
     const data = {
       username: username,
       user_name: name,
@@ -33,8 +42,11 @@ function UpdateUser({ user, setPosted }) {
       user_email: email,
       user_type: role,
     };
+
+    // Gets access token from cookie
     var cookie_token = getCookie("access_token");
 
+    // updates user info
     axios
       .put(`${configData.apiUrl}/users/${id}`, data, {
         headers: {

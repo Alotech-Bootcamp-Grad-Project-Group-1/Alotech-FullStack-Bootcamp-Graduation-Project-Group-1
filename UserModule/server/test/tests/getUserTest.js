@@ -8,6 +8,7 @@ const { indexUrl, access_token } = require('../testConfig');
 const {generateUser} = require('../schemas/testUsers');
 let userId;
 
+// Tests get user 
 const getUserTest = describe('Get user', function() {
 
     it('should create a user for test', function(done) {

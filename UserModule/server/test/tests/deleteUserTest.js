@@ -11,6 +11,7 @@ const db = require("../../models");
 const sequelize = db.sequelize;
 const username = "test name";
 
+// Tests delete user 
 const deleteUserTest = describe('Delete user', function() {
 
     it('should create a user for test', function(done) {

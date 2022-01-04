@@ -1,6 +1,7 @@
 import UpdateUser from "./components/UpdateUser";
 import DeleteUser from "./components/DeleteUser";
 
+// User Component
 function User({ user, posted, setPosted }) {
   return (
     <tr>

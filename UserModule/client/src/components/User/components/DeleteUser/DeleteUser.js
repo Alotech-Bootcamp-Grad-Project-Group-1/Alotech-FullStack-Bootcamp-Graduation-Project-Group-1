@@ -6,14 +6,24 @@ const { getCookie } = require("../../../../utility/Utility");
 
 const configData = require("../../../../config.json");
 
+// Delete User Component
 function DeleteUser({ user, setPosted }) {
+
+  //State for show
   const [show, setShow] = useState(false);
+
+  // Sets show false
   const handleClose = () => setShow(false);
+
+  // Sets show true
   const handleShow = () => setShow(true);
 
+  // deletes user by id
   function deleteUser(e) {
     const id = user.id;
     e.preventDefault();
+
+    // deletes user by id from users database
     axios
       .delete(`${configData.apiUrl}/users/${id}`, {
         headers: {

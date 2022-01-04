@@ -7,7 +7,7 @@ const userSchema = require('../schemas/userSchema');
 const {indexUrl, access_token} = require('../testConfig');
 const {generateUser} = require('../schemas/testUsers');
 
-
+// Tests create user 
 const createUserTest = describe('Create user', function() {
 
     it('should return 201', function(done) {

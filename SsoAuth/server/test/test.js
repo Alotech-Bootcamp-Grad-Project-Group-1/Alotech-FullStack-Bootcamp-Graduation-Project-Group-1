@@ -6,6 +6,7 @@ const setDB = require('./tests/setDB');
 const loginUserTest =  require('./tests/loginUserTest');
 const isTokenValidTest = require('./tests/isTokenValidTest');
 
+// Runs Tests
 describe('User Module API', async function() {
 
     await setDB;

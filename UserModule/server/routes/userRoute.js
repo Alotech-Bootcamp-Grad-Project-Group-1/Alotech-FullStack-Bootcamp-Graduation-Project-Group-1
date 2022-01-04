@@ -1,5 +1,4 @@
 const express = require("express");
-const router = express.Router();
 const {
   createUserValidation,
   updateUserValidation,
@@ -16,11 +15,16 @@ const {
   deleteUser,
 } = require("../controllers/userController.js");
 
+// Initializes express router
+const router = express.Router();
+
+// Routers and middlewares
 router
   .route("/")
   .get(validToken, checkAdmin, getListOfUsers)
-  .post( createUserValidation, createUser);
-//validToken, checkAdmin
+  .post(createUserValidation, createUser);
+
+// Routers and middlewares
 router
   .route("/:id")
   .get(validToken, checkUser, getUserInfo)

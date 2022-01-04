@@ -1,6 +1,7 @@
 import React from "react";
 import useForm from "./useForm";
 
+// Login page component
 const SignupForm = ({ submitForm }) => {
   const { handleChange, handleFormSubmit, values, errors } =
     useForm(submitForm);

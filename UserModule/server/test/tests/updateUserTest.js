@@ -9,6 +9,7 @@ const {generateUser} = require('../schemas/testUsers');
 let userId;
 let updateUser = generateUser();
 
+// Tests update user
 const updateUserTest = describe('Update user', function() {
 
     it('should create a user for test', function(done) {

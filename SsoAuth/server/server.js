@@ -10,6 +10,7 @@ var fs = require("fs");
 const saveLogs = require("./middleware/saveLogs");
 const storeLogsToDB = require("./middleware/storeLogsToDB");
 
+// Initialize app
 const app = express();
 
 const corsConfig = {
@@ -17,6 +18,7 @@ const corsConfig = {
   origin: true,
 };
 
+// Middlewares
 app.use(cors(corsConfig));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -24,11 +26,14 @@ app.use(cookieParser());
 app.use(saveLogs);
 app.use(storeLogsToDB);
 
+// SSO Auth server routers
 app.post("/", authorization);
 app.use("/auth", authRoute);
 
+// Initialize Port number
 const PORT = process.env.PORT || 3020;
 
+// Starts server
 db.sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);

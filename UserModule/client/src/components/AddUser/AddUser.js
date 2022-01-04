@@ -5,12 +5,20 @@ import axios from "axios";
 const { getCookie } = require("../../utility/Utility");
 const configData = require("../../config.json");
 
+
+// Add User component
 function AddUser({ posted, setPosted }) {
+
+  //State for show
   const [show, setShow] = useState(false);
 
+  // Sets show false
   const handleClose = () => setShow(false);
+
+  // Sets show true
   const handleShow = () => setShow(true);
 
+  // States for user info
   const [username, setUsername] = useState();
   const [name, setName] = useState();
   const [surname, setSurname] = useState();
@@ -18,10 +26,14 @@ function AddUser({ posted, setPosted }) {
   const [role, setRole] = useState("user");
   const [password, setPassword] = useState();
 
+  //State for showPassword
   const [showPassword, setShowPassword] = useState(false);
 
+  // This is invoked when form is submitted
   function handleSubmit(e) {
     e.preventDefault();
+
+    // user info
     const data = {
       username: username,
       user_name: name,
@@ -31,6 +43,7 @@ function AddUser({ posted, setPosted }) {
       user_type: role,
     };
 
+    // Creates new user and stores in users database
     axios
       .post(`${configData.apiUrl}/users`, data, {
         headers: {

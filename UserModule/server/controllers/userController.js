@@ -1,8 +1,9 @@
 const db = require("../models");
 const CryptoJs = require("crypto-js");
-const sequelize = db.sequelize;
 const { body, validationResult } = require("express-validator");
+const sequelize = db.sequelize;
 
+// Gets all user for users database
 const getListOfUsers = (req, res) => {
   sequelize
     .query("CALL getListOfUsers ()")
@@ -16,6 +17,7 @@ const getListOfUsers = (req, res) => {
     });
 };
 
+// Creates user and store in users database
 const createUser = (req, res) => {
   const {
     username,
@@ -56,6 +58,7 @@ const createUser = (req, res) => {
     });
 };
 
+// Gets user info by id from users database,
 const getUserInfo = (req, res) => {
   const user_id = req.params.id;
   sequelize
@@ -76,6 +79,7 @@ const getUserInfo = (req, res) => {
     });
 };
 
+// Updates user by id from users database
 const updateUser = (req, res) => {
   const user_id = req.params.id;
   const {
@@ -118,6 +122,7 @@ const updateUser = (req, res) => {
     });
 };
 
+// Deletes user by id from users database
 const deleteUser = (req, res) => {
   const user_id = req.params.id;
   sequelize

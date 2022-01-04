@@ -1,20 +1,25 @@
 const expect = require('chai').expect;
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-chai.use(chaiHttp);
 const CryptoJs = require("crypto-js");
+const {authUrl, access_token} = require('../testConfig');
+chai.use(chaiHttp);
+
 
 const db = require("../../models");
 const sequelize = db.sequelize;
 
 const User = require("../../models").User;
 
-const {authUrl, access_token} = require('../testConfig');
-
+// password for admin user
 let password = "admin";
+
+// salt password
 let salt_password = password + process.env.SALT_PASS;
+// hashs salt password
 let user_password_hash = CryptoJs.SHA256(salt_password).toString();
 
+// User admin object 
 let admin = {
     username: 'admin',
     user_name: 'admin',
@@ -24,6 +29,7 @@ let admin = {
     user_type: 'admin',
 };
 
+// token requirements
 let tokenReq = {
     username: "admin",
     user_password: "admin",
@@ -32,6 +38,7 @@ let tokenReq = {
 
 let token = '';
 
+// Creates admin user and tests
 const setDB = describe('Create admin and get token for tests', function() {
 
     it('should create admin to db, should fail if exists', function(done) {
